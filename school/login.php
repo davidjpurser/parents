@@ -11,14 +11,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-	<title>Brookfield Community School</title>
 	<?php include "links.php"; ?>
     </head>
     <body>
     <?php include "header.php"; ?>
     <div id="content">
-	Login to Brookfield
-	
+	Login:
 	<form action="process.php" method="post">
 	    Username: <input type="text" name="username" /><br>
 	    Password: <input type="password" name="password" />

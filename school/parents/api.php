@@ -163,42 +163,42 @@ elseif( $item['present'] =='0' ){
 }
 
 if($_POST['action']=='expanduser'){
-    $studentid = $_POST['studentid'];
-    $date = $_POST['date'];
-    $items = mysql_query("SELECT *, DATE_FORMAT(expectedtimestamp,'%T') as expected, DATE_FORMAT(actualtimestamp,'%T') as actual FROM bcs_bookings LEFT JOIN bcs_login ON bcs_login.username = bcs_bookings.staff  WHERE studentid = '$studentid' AND DATE_FORMAT(expectedtimestamp,'%d/%m/%Y') = '$date' ")or die(mysql_error());
-    ?>
-    <table>
-	<tr><td colspan=2>Department</td></tr>
-	
+  $studentid = $_POST['studentid'];
+  $date = $_POST['date'];
+  $items = mysql_query("SELECT *, DATE_FORMAT(expectedtimestamp,'%T') as expected, DATE_FORMAT(actualtimestamp,'%T') as actual FROM bcs_bookings LEFT JOIN bcs_login ON bcs_login.username = bcs_bookings.staff  WHERE studentid = '$studentid' AND DATE_FORMAT(expectedtimestamp,'%d/%m/%Y') = '$date' ")or die(mysql_error());
+  ?>
+  <table>
+    <tr><td colspan=2>Department</td></tr>
+
     <?php
     while($item = mysql_fetch_array($items)){
-	?>
-	
-	<tr>
-	    <td><?php echo $item['department']; ?> <abbr title="<?php echo $item['staffname']; ?>">(<?php echo strtoupper($item['username']); ?>)</abbr></td>
-	    <td><?php
-	    if($item['seen'] =='1'){
-		echo "Seen: " . $item['actual'];
-	    }
-	    else{
-		echo "Expected: " . $item['expected'];
-	    }
-	   
-	    ?></td>
-	</tr>
-	
-	<?php
-	
+  	?>
+  	
+  	<tr>
+      <td><?php echo $item['department']; ?> <abbr title="<?php echo $item['staffname']; ?>">(<?php echo strtoupper($item['username']); ?>)</abbr></td>
+      <td><?php
+      if($item['seen'] =='1'){
+  		  echo "Seen: " . $item['actual'];
+      }
+      else{
+  		  echo "Expected: " . $item['expected'];
+      }
+     
+      ?></td>
+  	</tr>
+  	
+  	<?php
+  	
     }
     if( mysql_num_rows($items) == 0){
-	?>
-	<tr>
-	    <td colspan=2>No Bookings Made</td>
-	</tr><?php
+  	?>
+      <tr>
+          <td colspan=2>No Bookings Made</td>
+      </tr><?php
     }
     ?>
-    
-    </table>
+  
+  </table>
     
     <?php
     
@@ -208,12 +208,12 @@ if($_POST['action']=='expanduser'){
 
 if($_POST['action'] =='Teacher' || $teacher){
     
-    $date = $_POST['date'];
-    $year = $_POST['year'];
-    $username = $userarray['username'];
+  $date = $_POST['date'];
+  $year = $_POST['year'];
+  $username = $userarray['username'];
 
     
-   $items=  mysql_query("SELECT *, CONCAT(firstname, ' ', lastname) as name, DATE_FORMAT(expectedtimestamp ,'%T') as expected, DATE_FORMAT(bookings.actualtimestamp ,'%T') as actualtime, students.id as tblstudentsid, bookings.id as bookingid FROM bcs_students as students RIGHT JOIN bcs_bookings as bookings ON students.id = bookings.studentid  LEFT JOIN (SELECT *, bcs_present.id as presentid, DATE_FORMAT(intime, '%T') as timein FROM bcs_present WHERE DATE_FORMAT(intime, '%d/%m/%Y') = '$date') as present ON present.studentid = students.id  WHERE students.form LIKE '$year%' AND DATE_FORMAT(bookings.expectedtimestamp,'%d/%m/%Y') = '$date' AND bookings.staff = '$username' ORDER BY bookings.seen, lastname, firstname")or die(mysql_error());
+  $items=  mysql_query("SELECT *, CONCAT(firstname, ' ', lastname) as name, DATE_FORMAT(expectedtimestamp ,'%T') as expected, DATE_FORMAT(bookings.actualtimestamp ,'%T') as actualtime, students.id as tblstudentsid, bookings.id as bookingid FROM bcs_students as students RIGHT JOIN bcs_bookings as bookings ON students.id = bookings.studentid  LEFT JOIN (SELECT *, bcs_present.id as presentid, DATE_FORMAT(intime, '%T') as timein FROM bcs_present WHERE DATE_FORMAT(intime, '%d/%m/%Y') = '$date') as present ON present.studentid = students.id  WHERE students.form LIKE '$year%' AND DATE_FORMAT(bookings.expectedtimestamp,'%d/%m/%Y') = '$date' AND bookings.staff = '$username' ORDER BY bookings.seen, lastname, firstname")or die(mysql_error());
     
     ?>
     <table class="left">
