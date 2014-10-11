@@ -7,14 +7,14 @@ include "check.php";
 <!DOCTYPE html>
 <html>
     <head>
-	<title>About Me</title>
+	<title>Administration</title>
 	<?php include "links.php"; ?>
     </head>
     <body>
     <?php include "header.php"; ?>
     <div id="content">
 	
-<a href="/school/parents">Go to Parents Evening System</a>
+	<a href="/school/parents">Go to Parents Evening System</a>
 	
 	
 	<h3>Change my Password</h3>
@@ -32,23 +32,17 @@ include "check.php";
 <?php
 
 $parentsevening = mysql_query("SELECT *,CONVERT(form, SIGNED) AS year FROM (SELECT *,DATE_FORMAT(intime, '%d/%m/%Y') as date FROM bcs_present GROUP BY date) as part LEFT JOIN bcs_students ON part.studentid =bcs_students.id  GROUP BY date ORDER BY intime ASC");
-
 while($evening = mysql_fetch_array($parentsevening)){
-    
+   
     ?>
     <a href="/school/parents/app.php?date=<?php echo $evening['date']; ?>&year=<?php echo $evening['year']; ?>"> <?php echo $evening['date']; ?> Year: <?php echo $evening['year']; ?></a><br>
-    
     <?php
-    
 }
-
-
-
 
 if($userarray['type'] =='admin'){
 ?>
 <hr>
-    <h2>Admin Only</h2>
+<h2>Admin Only</h2>
 <h3>Manage</h3>
 <a href="http://app.davidpurser.net/parentseveninghowto.pdf">Download help sheet</a><br><br>
 
@@ -148,14 +142,9 @@ If you delete by accident and want to upload the downloaded file back up then pl
     
     
 <?php
-}
-
-
+} //Admin only
 ?>	
-	
-	
-	
-	
+
     </div>
     <?php include "footer.php"; ?>
     </body>

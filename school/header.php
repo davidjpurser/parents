@@ -1,7 +1,6 @@
 <div id="page">
 <header>
-    <h1>Brookfield Community School</h1>
-    <h3>Specialist Sports College</h3>
+    <h1><?php echo Settings::school_name ?></h1>
 </header>
 
 <nav>

@@ -203,14 +203,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "school/connect.php",
-			"settings":
-			{
-				"buffer_size": 138,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -236,6 +228,19 @@
 	},
 	"file_history":
 	[
+		"/Users/David/Code/parents/school/connect.php",
+		"/Users/David/Code/parents/school/footer.php",
+		"/Users/David/Code/parents/school/header.php",
+		"/Users/David/Code/parents/school/css.css",
+		"/Users/David/Code/parents/school/parents/import.php",
+		"/Users/David/Code/parents/school/parents/download.php",
+		"/Users/David/Code/parents/school/delete.php",
+		"/Users/David/Code/parents/school/dojo.php",
+		"/Users/David/Code/parents/school/index.php",
+		"/Users/David/Code/parents/school/check.php",
+		"/Users/David/Code/parents/school/getuserarray.php",
+		"/Users/David/Code/parents/school/logo.png",
+		"/Users/David/Code/parents/.gitignore",
 		"/Users/David/Code/general/python/labs/nims.py",
 		"/Users/David/Desktop/index.php",
 		"/Users/David/Dropbox/public_html/school/connect.php",
@@ -304,7 +309,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			"/Users/David/Code/OneEngine"
@@ -411,35 +416,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "school/connect.php",
-					"settings":
-					{
-						"buffer_size": 138,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								138,
-								138
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

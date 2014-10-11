@@ -1,15 +1,11 @@
 <?php
  include "connect.php";
  include "getuserarray.php";
-
  
  if($loggedin == 1){
-
-	    header("Location: $prefix/me.php");
-  
+	    header("Location: $prefix/me.php");  
     die();
  }
-
 
 ?>
 <!DOCTYPE html>

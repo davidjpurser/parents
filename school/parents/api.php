@@ -36,7 +36,7 @@ if($_POST['action'] =='bookstudent'){
     $date = preg_replace("/((\d{2})\/(\d{2})\/(\d{4}))/","$4-$3-$2",$date);
 
     if( !empty($id) && !empty($time)){
-	mysql_query("INSERT INTO bcs_bookings (`staff`,`studentid`,`expectedtimestamp`) VALUES ('$username','$id',CONCAT( '$date',' ', '$time',':00'))")or die(mysql_error());
+	   mysql_query("INSERT INTO bcs_bookings (`staff`,`studentid`,`expectedtimestamp`) VALUES ('$username','$id',CONCAT( '$date',' ', '$time',':00'))")or die(mysql_error());
     }
     
     $teacher = true;

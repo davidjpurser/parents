@@ -9,7 +9,6 @@ include "check.php";
 <!DOCTYPE html>
 <html>
     <head>
-	<title>Brookfield Community School</title>
 	<?php include "links.php"; ?>
     </head>
     <body>

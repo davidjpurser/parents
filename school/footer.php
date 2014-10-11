@@ -1,9 +1,5 @@
-
-
-
 <footer>
-Chatsworth Road, Chesterfield, Derbshire S40 3NS <br>
-    Website by David Purser
+<a href="https://github.com/davidjpurser/parents/">Parents evening system</a>
 </footer>
 
 </div> <!--#page-->
