@@ -1,0 +1,221 @@
+﻿body{
+	min-width: 900px;
+	font-family: Helvetica, Arial, sans-serif
+}
+
+h3{
+	margin: 0
+}
+
+
+.item{
+	
+	margin:3px;
+	background-color:#F0F0F0;
+	border: thin #C0C0C0 solid ;
+	
+	padding:4px;
+}
+.item h3{
+
+}
+.item td:first-child{
+	padding:5px;
+}
+
+.item img{
+	vertical-align:middle
+}
+.epc{
+	width: 10px;
+}
+.epc button{
+	width: 10px;
+}
+#timer table{
+	
+	border-collapse:collapse
+
+}
+#timer > div{
+	clear: both
+}
+header{
+	text-align: center;
+	background-color:#F0F0F0;
+	border: thin #C0C0C0 solid ;
+	padding:4px;
+	
+}
+.expand{
+	background-color:#e5e5e5
+}
+.expander, .contract{
+	font-size: xx-small;
+	text-align: center;
+}
+.review{
+	display: none;
+	background-color:#e5e5e5
+}
+.review table{
+	width:100%;
+	border-collapse:collapse
+}
+.review table tr:first-child{
+	background-color: black;
+	color: white
+}
+.review table td{
+	border: thin #C0C0C0 solid ;
+}
+.w25{
+	width:25px;
+}
+.block{
+	display:none;
+}
+.rot270{
+	-webkit-transform: rotate(270deg);  
+     -moz-transform: rotate(270deg);  
+      -ms-transform: rotate(270deg);  
+       -o-transform: rotate(270deg);  
+          transform: rotate(270deg);  
+             filter: progid:DXImageTransform.Microsoft.Matrix( 
+                     M11=-1.8369701987210297e-16, M12=1, M21=-1, M22=-1.8369701987210297e-16, sizingMethod='auto expand');
+               zoom: 1;
+}
+
+
+
+
+.left{
+	float: left;
+	width: 49%;
+}
+.right{
+	float: right;
+	width: 49%;
+}
+
+#temp{
+	display: none;
+}
+#add input{
+ background-color: rgb(240, 240, 240); border: thin solid rgb(192, 192, 192); height: 20px;
+}
+#add #title input{
+	width: 400px;
+}
+.green, .blue, .red{
+	width: 80px;
+}
+.green{
+
+
+background: -moz-linear-gradient(top,#B0D389,#8BB25F); background: -webkit-gradient(linear, left top, left bottom, from(#B0D389), to(#8BB25F ));filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#B0D389', EndColorStr='#8BB25F', GradientType=0);background-repeat: no-repeat ;  background-position: center bottom ;background-color: #8BB25F;;
+	
+text-shadow: #B0D389  0 1px 1px;
+
+}
+.blue{
+
+
+background: -moz-linear-gradient(top,#7EA2E2,#5686D9); background: -webkit-gradient(linear, left top, left bottom, from(#7EA2E2), to(#5686D9 ));filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#7EA2E2', EndColorStr='#5686D9', GradientType=0);background-repeat: no-repeat ;  background-position: center bottom ;background-color: #5686D9;;
+	
+text-shadow: #7EA2E2  0 1px 1px;
+
+}
+.red{
+
+
+background: -moz-linear-gradient(top,#DF782D,#DA591E); background: -webkit-gradient(linear, left top, left bottom, from(#DF782D), to(#DA591E ));filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr='#DF782D', EndColorStr='#DA591E', GradientType=0);background-repeat: no-repeat ;  background-position: center bottom ;background-color: #DA591E;;
+	
+text-shadow: #DF782D  0 1px 1px;
+
+}
+
+
+@media print
+{
+.break{
+	page-break-after:always
+}
+}
+
+
+div.time-picker {
+  position: absolute;
+  height: 191px;
+  width:4em; 
+  overflow: auto;
+  background: #fff;
+  border: 1px solid #aaa;
+  z-index: 99;
+  margin: 0;
+}
+div.time-picker-12hours {
+  width:6em; 
+}
+
+div.time-picker ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+div.time-picker li {
+  cursor: pointer;
+  height: 10px;
+  font: 12px/1 Helvetica, Arial, sans-serif;
+  padding: 4px 3px;
+}
+div.time-picker li.selected {
+  background: #0063CE;
+  color: #fff;
+}
+
+@font-face {
+    font-family: 'ModernPictogramsNormal';
+    src: url('/font/modern-pictograms/modernpics-webfont.eot');
+    src: url('/font/modern-pictograms/modernpics-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/modern-pictograms/modernpics-webfont.woff') format('woff'),
+         url('/font/modern-pictograms/modernpics-webfont.ttf') format('truetype'),
+         url('/font/modern-pictograms/modernpics-webfont.svg#ModernPictogramsNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'MixedRegular';
+    src: url('/font/mixed/mixed-webfont.eot');
+    src: url('/font/mixed/mixed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/font/mixed/mixed-webfont.woff') format('woff'),
+         url('/font/mixed/mixed-webfont.ttf') format('truetype'),
+         url('/font/mixed/mixed-webfont.svg#ModernPictogramsNormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.pictogram{font: 60px/68px 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 0;
+
+font-weight: normal!important
+}
+
+
+.pictogramsml{font: 25px/30px 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 0;
+
+font-weight: normal!important
+}
+
+
+.pictogram2{
+	font-family:'ModernPictogramsNormal', Arial, sans-serif ;
+	letter-spacing: 0;
+}
+
+@media print
+  {
+  #add {display:none}
+  }

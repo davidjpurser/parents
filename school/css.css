@@ -1,0 +1,161 @@
+body{
+    font-family: 'Cabin Condensed', sans-serif;
+}
+
+#page{
+    width: 1000px;
+    margin: auto;
+    border: thin silver solid;
+    border-radius: 3px;
+}
+header .image{
+    float: right
+}
+header .logo{
+    float: left;
+    width: 100px;
+}
+header h1, header h3{
+    margin-left: 120px;
+    color:#761542
+}
+header, footer, #content{
+    padding: 5px;
+}
+#content{
+    min-height: 300px;
+    
+    clear: left
+}
+footer{
+    text-align: center;
+    font-size: small
+}
+.sidebar{
+    width: 200px;
+    float: right;
+    border: thin silver solid;
+    border-radius: 3px;
+    margin-right: 10px;
+    margin-top: 10px;
+    clear:right
+}
+.sidebar h3{
+    display: block;
+    margin: 0;
+    background: #2f8bea;
+    text-align: center;
+    color: white;
+    
+}
+.pad{
+    padding: 5px;
+}
+
+.stripe > :nth-child(2n){
+    background-color:#edf3fe
+}
+.stripe > :nth-child(2n+1){
+    background-color: white;
+}
+.notices h4{
+    margin: 0;
+}
+.notices span{
+    font-size: x-small
+}
+
+footer{
+    clear: both
+}
+
+#coolMenu {
+    font-family: Arial;
+    font-size: 12px;
+    background: #2f8be8;
+}
+#coolMenu > li > a {
+    color: #fff;
+    font-weight: bold;
+}
+#coolMenu > li:hover > a {
+    background: #f09d28;
+    color: #000;
+}
+
+#coolMenu ul {
+    background: #f09d28;
+}
+#coolMenu ul li a {
+    color: #000;
+}
+#coolMenu ul li:hover a {
+    background: #ffc97c;
+}
+
+
+#coolMenu, #coolMenu ul {
+    list-style: none;
+padding:0
+
+}
+#coolMenu {
+    float: left;
+    width:100%
+}
+#coolMenu > li {
+    float: left;
+}
+#coolMenu li a {
+display: block;
+    height: 2em;
+    line-height: 2em;
+    padding: 0 1.5em;
+    text-decoration: none;
+}
+#coolMenu ul {
+    position: absolute;
+    display: none;
+    z-index: 999;
+}
+#coolMenu li:hover ul.noJS {
+    display: block;
+}
+
+.pageset{
+    width: 100%   ;
+    border-collapse: collapse
+}
+.pageset thead{
+    background-color: black;
+    color: white;
+}
+.pageset td{
+    border: thin silver solid
+}
+
+.standardtbl {
+	border-collapse:collapse;
+	width:100%;
+}
+.standardtbl tr:first-child{
+	background-color:black;
+	color:white;
+	text-align:center
+}
+.standardtbl tr:first-child a{
+	color:white;
+}
+.standardtbl * + tbody tr:first-child{
+	background: none;
+	color: black;
+	text-align: left
+}
+
+.standardtbl td{
+	padding:2px;
+	border:thin gray solid
+}
+.standardtbl tr, .standardtbl table, .standardtbl td{
+	border-spacing:0 0
+}
