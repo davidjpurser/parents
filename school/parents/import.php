@@ -47,9 +47,9 @@ FILE ADDED DO NOT ADD AGAIN! <br>
 <a href="index.php">Go To Site</a>
 <?php    
     
-    }    
-    
-    ?>
+}    
+
+?>
    <a href="app.php">Back to app</a><br>
 How to use:
 <ul>
@@ -57,22 +57,16 @@ How to use:
 Create a spread sheet using SIMS from student list</li>
 <li>Include ONLY Preferred surname, Preferred firstname and form - in that order (change in excel if necessary)</li>
 <li>Open the spreadsheet in excel</li>
-<li>IMPORTANT - remove all header rows - including the date it is correct and the column headers</li>
+<li>IMPORTANT - remove all header rows - including the date and the column headers</li>
 <li>SAVE AS and choose the file type as CSV - call it what you like!</li>
 <li>Use the following system</li>
 </ul>
-Problems: davidjpurser@gmail.com
+
+If you have problems contact the system admin to help you get the data into the database.
     
 <form enctype="multipart/form-data" action="import.php" method="POST">
 <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 Choose a file to upload: <input name="uploadedfile" type="file" /><br />
 <input type="submit" value="Upload File" />
 </form>
-    
-    
-    <?php
-}
-
-
-
-?>
+ <?php } ?>
