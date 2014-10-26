@@ -54,11 +54,10 @@ if($userarray['type'] =='admin'){
 <a href="<?php echo $prefix?>/delete.php">Delete this year</a>
 
 <br>
-If you have any problems please email: davidjpurser@gmail.com
-<br>
-If you delete by accident and want to upload the downloaded file back up then please email that file to me.
-<br>
-    If you delete without download it is gone forever.
+The download can be readded to the database by your system administrator manually.
+
+
+If you delete without download it is gone forever.
 
 
  <h3>Add New Staff</h3>

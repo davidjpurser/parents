@@ -186,18 +186,6 @@ div.time-picker li.selected {
 
 }
 
-@font-face {
-    font-family: 'MixedRegular';
-    src: url('/font/mixed/mixed-webfont.eot');
-    src: url('/font/mixed/mixed-webfont.eot?#iefix') format('embedded-opentype'),
-         url('/font/mixed/mixed-webfont.woff') format('woff'),
-         url('/font/mixed/mixed-webfont.ttf') format('truetype'),
-         url('/font/mixed/mixed-webfont.svg#ModernPictogramsNormal') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
 .pictogram{font: 60px/68px 'ModernPictogramsNormal', Arial, sans-serif;letter-spacing: 0;
 
 font-weight: normal!important
