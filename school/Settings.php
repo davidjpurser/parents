@@ -1,3 +1,4 @@
+<?php 
 class Settings {
 	
 	public static db_username = "";
@@ -8,4 +9,5 @@ class Settings {
 	public static school_name = "";
 	public static prefix = "/school";
 	public static appsalt = "SaltValue"; //Do not change over application lifetime, will disable every user.
-}
+} 
+?>
