@@ -336,7 +336,8 @@ if ($_GET['action'] == 'autocomplete') {
 if ($_POST['action'] == 'summary') {
   $date = $_POST['date'];
   $year = $_POST['year'];
-  $activities = mysql_query("SELECT *,GROUP_CONCAT(staff) AS peopleseen
+  $activities = mysql_query("
+SELECT *,GROUP_CONCAT(staff) AS peopleseen
 FROM   (SELECT Concat(firstname, ' ', lastname) AS name,form,present,intime, firstname, lastname,
                       students.id AS outputid
         FROM   bcs_students AS students
@@ -398,16 +399,13 @@ ORDER BY form, lastname, firstname
 <?php
     }
     else {
-?>
-<img src="http://app.davidpurser.net/icon/tick16.png" >
-<?php
+    ?>
+    <img src="http://app.davidpurser.net/icon/tick16.png" >
+    <?php
     }
 
 ?>
 </td>
-
-
-
 
 </tr>
 <?php
@@ -420,7 +418,8 @@ ORDER BY form, lastname, firstname
   } ?>"><td colspan=5></td></tr>
 <tr><td colspan=5 >No Shows</td></tr>    
 <?php
-  $noshow = mysql_query("SELECT *,
+  $noshow = mysql_query("
+SELECT *,
        CONCAT(firstname, ' ', lastname) AS name,
        students.id                      AS outputid
 FROM   bcs_students AS students
@@ -428,7 +427,7 @@ FROM   bcs_students AS students
                   FROM   bcs_present
                   WHERE  Date_format(intime, '%d/%m/%Y') = '$date') AS
                  present
-         ON present.studentid = students.id
+       ON present.studentid = students.id
 WHERE  form LIKE '$year%'
        AND Ifnull(present.intime, 'no') = 'no'
 ORDER  BY form,
@@ -443,9 +442,6 @@ ORDER  BY form,
   }
 
 ?>
-
-
-
 
 </table>
 <div> &nbsp; </div>
