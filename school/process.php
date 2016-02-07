@@ -78,7 +78,7 @@ if($_POST['action']=='deleteAllData'){
     mysql_query("TRUNCATE TABLE `bcs_present`");
     mysql_query("TRUNCATE TABLE `bcs_students`");
   
-    header("Location: $prefix/me");
+    header("Location: $prefix/me.php");
 }
 
 if($_POST['action']=='Change Password'){
