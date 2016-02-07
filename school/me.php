@@ -107,7 +107,7 @@ If you delete without download it is gone forever.
 	     </td>
 	    <td>
 		<?php
-		if($staff['password'] =='5f4dcc3b5aa765d61d8327deb882cf99'){
+		if($staff['password'] == md5(Settings::$appsalt . $staff['username'] . "password")){
 		echo "yes";
 		}
 		
