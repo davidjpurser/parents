@@ -1,6 +1,6 @@
 <div id="page">
 <header>
-    <h1><?php echo Settings::school_name ?></h1>
+    <h1><?php echo Settings::$school_name ?></h1>
 </header>
 
 <nav>
