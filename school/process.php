@@ -18,12 +18,12 @@ if($_POST['action']=='Login'){
     else{
         logout();
     }
-    header("Location: $prefix/login");
+    header("Location: $prefix/login.php");
 }
 
 if($_GET['action'] =='logout'){
     logout();
-    header("Location: $prefix/login");
+    header("Location: $prefix/login.php");
 }
 
 if($_POST['action']=='Add User'){

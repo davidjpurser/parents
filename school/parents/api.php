@@ -394,13 +394,13 @@ ORDER BY form, lastname, firstname
 <?php
     if (is_null($item['present'])) {
 ?>
-<img src="http://app.davidpurser.net/icon/delete_16.png" >
+<img src="https://www.davidpurser.net/static/icon/delete_16.png" >
 
 <?php
     }
     else {
     ?>
-    <img src="http://app.davidpurser.net/icon/tick16.png" >
+    <img src="https://www.davidpurser.net/static/icon/tick16.png" >
     <?php
     }
 

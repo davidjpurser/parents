@@ -13,16 +13,15 @@ include "../check.php"; ?>
 
 
 
-<link rel="stylesheet" href="http://app.davidpurser.net/formalize/css/formalize.css" type="text/css" >
-<link type="text/css" href="http://app.davidpurser.net/jqueryui/css/smoothness/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.davidpurser.net/static/formalize/css/formalize.css" type="text/css" >
+<link type="text/css" href="https://www.davidpurser.net/static/jqueryui/css/smoothness/jquery-ui-1.8.21.custom.css" rel="stylesheet">
 
-<link rel="stylesheet" href="http://app.davidpurser.net/tipsy/tipsy.css" type="text/css" >
+<link rel="stylesheet" href="https://www.davidpurser.net/static/tipsy/tipsy.css" type="text/css" >
 
-<script type="text/javascript" src="http://app.davidpurser.net/jq.js" ></script>
-<script type="text/javascript" src="/generic.js"></script>
-<script type="text/javascript" src="http://app.davidpurser.net/jqueryui/js/jquery-ui-1.8.21.custom.min.js" ></script>
-<script type="text/javascript" src="http://app.davidpurser.net/formalize/js/jquery.formalize.min.js"></script>
-<script type="text/javascript" src="http://app.davidpurser.net/tipsy/jquery.tipsy.js"></script>
+<script type="text/javascript" src="https://www.davidpurser.net/static/jq.js" ></script>
+<script type="text/javascript" src="https://www.davidpurser.net/static/jqueryui/js/jquery-ui-1.8.21.custom.min.js" ></script>
+<script type="text/javascript" src="https://www.davidpurser.net/static/formalize/js/jquery.formalize.min.js"></script>
+<script type="text/javascript" src="https://www.davidpurser.net/static/tipsy/jquery.tipsy.js"></script>
 
 
 
@@ -104,7 +103,7 @@ if(isset($_GET['date'])){
 				<button class="opacative" data-action="fullrefresh">Refresh</button>
 			</td>
 			<td style="width:54px">
-				<form action="/school/logout" method="get">
+				<form action="/school/logout.php" method="get">
 					<button>Logout</button>
 				</form>
 				

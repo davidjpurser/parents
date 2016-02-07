@@ -6,7 +6,7 @@ if($loggedin > 0){
     die();
 }
 else{
-    header("Location: $prefix/login");
+    header("Location: $prefix/login.php");
     die();
 }
 ?>

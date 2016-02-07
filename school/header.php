@@ -9,8 +9,8 @@
     <li><a href="/school/">Home</a></li>
   
     <li><a href="<?php echo $prefix; ?>/parents/" >Parents</a></li>
-    <?php if(!isset($_COOKIE['parentsdb_username'])){ ?>
-    <li style="float:right"><a href="/school/login">Login</a></li>
+    <?php if(!isset($_SESSION["loginuser"])){ ?>
+    <li style="float:right"><a href="<?php echo $prefix; ?>/login.php">Login</a></li>
 	<?php 
 
 	}
@@ -18,7 +18,7 @@
 	?>
 	<li style="float:right"><a href="/school/process.php?action=logout">Logout</a></li>
 	
-	<li style="float:right"><a href="<?php echo $prefix; ?>/me.php">Me</a></li>
+	<li style="float:right"><a href="<?php echo $prefix; ?>/me.php">Manage</a></li>
 	<?php
 	}
         ?>

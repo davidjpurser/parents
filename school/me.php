@@ -29,6 +29,7 @@ include "check.php";
 	
 	<br>
 	<h3>Parents Evenings</h3>
+	(you may need to click refresh once the page has loaded to show the students properly.)<br><br>
 <?php
 
 $parentsevening = mysql_query("SELECT *,CONVERT(form, SIGNED) AS year FROM (SELECT *,DATE_FORMAT(intime, '%d/%m/%Y') as date FROM parentsdb_present GROUP BY date) as part LEFT JOIN parentsdb_students ON part.studentid =parentsdb_students.id  GROUP BY date ORDER BY intime ASC");
@@ -44,7 +45,7 @@ if($userarray['type'] =='admin'){
 <hr>
 <h2>Admin Only</h2>
 <h3>Manage</h3>
-<a href="http://app.davidpurser.net/parentseveninghowto.pdf">Download help sheet</a><br><br>
+<a href="https://www.davidpurser.net/static/parentseveninghowto.pdf">Download help sheet</a><br><br>
 
 
 <a href="<?php echo $prefix?>/parents/import.php">Add Students</a><br>
