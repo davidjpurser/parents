@@ -16,7 +16,7 @@
 	}
 	else{
 	?>
-	<li style="float:right"><a href="/school/logout">Logout</a></li>
+	<li style="float:right"><a href="/school/process.php?action=logout">Logout</a></li>
 	
 	<li style="float:right"><a href="<?php echo $prefix; ?>/me.php">Me</a></li>
 	<?php

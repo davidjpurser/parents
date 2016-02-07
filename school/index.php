@@ -13,7 +13,7 @@ include "connect.php";
     <?php include "header.php"; ?>
     
     <div id="content">
-	Welcome please <a href="/school/login">login</a>
+	Welcome please <a href="/school/login.php">login</a>
 	</div>
     <?php include "footer.php"; ?>
     </body>
