@@ -8,7 +8,7 @@ function logout(){
 
 
 if($_POST['action']=='Login'){
-    $username = $_POST['username'];
+    $username = mysql_real_escape_string($_POST['username']);
     $password = $_POST['password'];
     $password = md5($appsalt . $username . $password);
     $user = mysql_query("SELECT * FROM parentsdb_login WHERE username= '$username' AND password = '$password'")or die(mysql_error());

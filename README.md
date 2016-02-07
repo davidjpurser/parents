@@ -1,7 +1,7 @@
 Parents Evening Sign In System
 ==============================
 
-This parents evening system should be stored on a system using SSL.
+This parents evening system should be stored on a system using SSL and used only by people you trust - it is not fully secured.
 
 Instal the database via database.sql.
 
