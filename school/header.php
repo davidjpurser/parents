@@ -9,7 +9,7 @@
     <li><a href="/school/">Home</a></li>
   
     <li><a href="<?php echo $prefix; ?>/parents/" >Parents</a></li>
-    <?php if(!isset($_COOKIE['bcs_username'])){ ?>
+    <?php if(!isset($_COOKIE['parentsdb_username'])){ ?>
     <li style="float:right"><a href="/school/login">Login</a></li>
 	<?php 
 

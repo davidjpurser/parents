@@ -31,7 +31,7 @@ include "check.php";
 	<h3>Parents Evenings</h3>
 <?php
 
-$parentsevening = mysql_query("SELECT *,CONVERT(form, SIGNED) AS year FROM (SELECT *,DATE_FORMAT(intime, '%d/%m/%Y') as date FROM bcs_present GROUP BY date) as part LEFT JOIN bcs_students ON part.studentid =bcs_students.id  GROUP BY date ORDER BY intime ASC");
+$parentsevening = mysql_query("SELECT *,CONVERT(form, SIGNED) AS year FROM (SELECT *,DATE_FORMAT(intime, '%d/%m/%Y') as date FROM parentsdb_present GROUP BY date) as part LEFT JOIN parentsdb_students ON part.studentid =parentsdb_students.id  GROUP BY date ORDER BY intime ASC");
 while($evening = mysql_fetch_array($parentsevening)){
    
     ?>
@@ -83,7 +83,7 @@ If you delete without download it is gone forever.
 	</tr>
 	<?php
 	
-	$staffs = mysql_query("SELECT * FROM `bcs_login` ORDER BY `type`,`department`");
+	$staffs = mysql_query("SELECT * FROM `parentsdb_login` ORDER BY `type`,`department`");
 	while($staff = mysql_fetch_array($staffs)){
 	?>
 	<tr>

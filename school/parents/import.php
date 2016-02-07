@@ -8,7 +8,7 @@ if( isset($_FILES['uploadedfile']['tmp_name']) && file_exists($_FILES['uploadedf
     
     
     
-$table    = "bcs_students";
+$table    = "parentsdb_students";
 $fileName = $_FILES['uploadedfile']['tmp_name'];
 ini_set('auto_detect_line_endings',TRUE);
 $output =  Array();

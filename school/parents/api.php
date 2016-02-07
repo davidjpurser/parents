@@ -6,9 +6,9 @@ require "../check.php";
 
 function arrivestudent($id)
 {
-  $alreadypresent = mysql_num_rows(mysql_query("SELECT * FROM bcs_present WHERE DATE_FORMAT(intime,'%d %m %Y') = DATE_FORMAT(UTC_TIMESTAMP,'%d %m %Y') AND studentid = '$id'"));
+  $alreadypresent = mysql_num_rows(mysql_query("SELECT * FROM parentsdb_present WHERE DATE_FORMAT(intime,'%d %m %Y') = DATE_FORMAT(UTC_TIMESTAMP,'%d %m %Y') AND studentid = '$id'"));
   if ($alreadypresent == 0) {
-    mysql_query("INSERT INTO bcs_present (`studentid`,`intime`) VALUES ('$id', UTC_TIMESTAMP)");
+    mysql_query("INSERT INTO parentsdb_present (`studentid`,`intime`) VALUES ('$id', UTC_TIMESTAMP)");
   }
 
   return true;
@@ -23,7 +23,7 @@ if ($_POST['action'] == 'arive') {
 if ($_POST['action'] == 'leave') {
   $id = $_POST['id'];
   $date = $_POST['date'];
-  mysql_query("DELETE FROM bcs_present WHERE studentid = '$id' AND DATE_FORMAT(intime, '%d/%m/%Y') = '$date' LIMIT 1");
+  mysql_query("DELETE FROM parentsdb_present WHERE studentid = '$id' AND DATE_FORMAT(intime, '%d/%m/%Y') = '$date' LIMIT 1");
   $respond = true;
 }
 
@@ -34,7 +34,7 @@ if ($_POST['action'] == 'bookstudent') {
   $date = $_POST['date'];
   $date = preg_replace("/((\d{2})\/(\d{2})\/(\d{4}))/", "$4-$3-$2", $date);
   if (!empty($id) && !empty($time)) {
-    mysql_query("INSERT INTO bcs_bookings (`staff`,`studentid`,`expectedtimestamp`) VALUES ('$username','$id',CONCAT( '$date',' ', '$time',':00'))") or die(mysql_error());
+    mysql_query("INSERT INTO parentsdb_bookings (`staff`,`studentid`,`expectedtimestamp`) VALUES ('$username','$id',CONCAT( '$date',' ', '$time',':00'))") or die(mysql_error());
   }
 
   $teacher = true;
@@ -45,13 +45,13 @@ if ($_POST['action'] == 'seestudent') {
   $studentid = $_POST['studentid'];
   arrivestudent($studentid);
   $present = $_POST['present'];
-  mysql_query("UPDATE bcs_bookings SET seen = '$present', actualtimestamp = UTC_TIMESTAMP WHERE id = '$id'") or die(mysql_error());
+  mysql_query("UPDATE parentsdb_bookings SET seen = '$present', actualtimestamp = UTC_TIMESTAMP WHERE id = '$id'") or die(mysql_error());
   $teacher = true;
 }
 
 if ($_POST['action'] == 'deletebooking') {
   $id = $_POST['bookingid'];
-  mysql_query("DELETE FROM bcs_bookings WHERE id = '$id'") or die(mysql_error());
+  mysql_query("DELETE FROM parentsdb_bookings WHERE id = '$id'") or die(mysql_error());
   $teacher = true;
 }
 
@@ -63,11 +63,11 @@ if ($_POST['action'] == 'get' || $respond) {
        CONCAT(firstname, ' ', lastname) AS name,
        students.id                      AS outputid,
        Ifnull(present, 3)               AS ordercolumn
-FROM   bcs_students AS students
+FROM   parentsdb_students AS students
        LEFT JOIN (SELECT *,
-                         bcs_present.id            AS presentid,
+                         parentsdb_present.id            AS presentid,
                          Date_format(intime, '%T') AS timein
-                  FROM   bcs_present
+                  FROM   parentsdb_present
                   WHERE  Date_format(intime, '%d/%m/%Y') = '$date') AS present
          ON present.studentid = students.id
 WHERE  CONCAT(firstname, ' ', lastname, ' ', firstname, ' ', form) LIKE
@@ -164,7 +164,7 @@ In: <?php
 if ($_POST['action'] == 'expanduser') {
   $studentid = $_POST['studentid'];
   $date = $_POST['date'];
-  $items = mysql_query("SELECT *, DATE_FORMAT(expectedtimestamp,'%T') as expected, DATE_FORMAT(actualtimestamp,'%T') as actual FROM bcs_bookings LEFT JOIN bcs_login ON bcs_login.username = bcs_bookings.staff  WHERE studentid = '$studentid' AND DATE_FORMAT(expectedtimestamp,'%d/%m/%Y') = '$date' ") or die(mysql_error());
+  $items = mysql_query("SELECT *, DATE_FORMAT(expectedtimestamp,'%T') as expected, DATE_FORMAT(actualtimestamp,'%T') as actual FROM parentsdb_bookings LEFT JOIN parentsdb_login ON parentsdb_login.username = parentsdb_bookings.staff  WHERE studentid = '$studentid' AND DATE_FORMAT(expectedtimestamp,'%d/%m/%Y') = '$date' ") or die(mysql_error());
 ?>
   <table>
     <tr><td colspan=2>Department</td></tr>
@@ -210,7 +210,7 @@ if ($_POST['action'] == 'Teacher' || $teacher) {
   $date = $_POST['date'];
   $year = $_POST['year'];
   $username = $userarray['username'];
-  $items = mysql_query("SELECT *, CONCAT(firstname, ' ', lastname) as name, DATE_FORMAT(expectedtimestamp ,'%T') as expected, DATE_FORMAT(bookings.actualtimestamp ,'%T') as actualtime, students.id as tblstudentsid, bookings.id as bookingid FROM bcs_students as students RIGHT JOIN bcs_bookings as bookings ON students.id = bookings.studentid  LEFT JOIN (SELECT *, bcs_present.id as presentid, DATE_FORMAT(intime, '%T') as timein FROM bcs_present WHERE DATE_FORMAT(intime, '%d/%m/%Y') = '$date') as present ON present.studentid = students.id  WHERE students.form LIKE '$year%' AND DATE_FORMAT(bookings.expectedtimestamp,'%d/%m/%Y') = '$date' AND bookings.staff = '$username' ORDER BY bookings.seen, lastname, firstname") or die(mysql_error());
+  $items = mysql_query("SELECT *, CONCAT(firstname, ' ', lastname) as name, DATE_FORMAT(expectedtimestamp ,'%T') as expected, DATE_FORMAT(bookings.actualtimestamp ,'%T') as actualtime, students.id as tblstudentsid, bookings.id as bookingid FROM parentsdb_students as students RIGHT JOIN parentsdb_bookings as bookings ON students.id = bookings.studentid  LEFT JOIN (SELECT *, parentsdb_present.id as presentid, DATE_FORMAT(intime, '%T') as timein FROM parentsdb_present WHERE DATE_FORMAT(intime, '%d/%m/%Y') = '$date') as present ON present.studentid = students.id  WHERE students.form LIKE '$year%' AND DATE_FORMAT(bookings.expectedtimestamp,'%d/%m/%Y') = '$date' AND bookings.staff = '$username' ORDER BY bookings.seen, lastname, firstname") or die(mysql_error());
 ?>
     <table class="left">
     <tr><td>Not-Seen</td></tr>
@@ -321,7 +321,7 @@ if ($_POST['action'] == 'Teacher' || $teacher) {
 if ($_GET['action'] == 'autocomplete') {
   $term = $_POST['term'];
   $year = $_GET['year'];
-  $students = mysql_query("SELECT *, CONCAT(firstname, ' ', lastname) as name FROM bcs_students WHERE CONCAT(firstname, ' ', lastname,' ', firstname) LIKE '%$term%' AND form LIKE '$year%'");
+  $students = mysql_query("SELECT *, CONCAT(firstname, ' ', lastname) as name FROM parentsdb_students WHERE CONCAT(firstname, ' ', lastname,' ', firstname) LIKE '%$term%' AND form LIKE '$year%'");
   $i = 0;
   while ($student = mysql_fetch_array($students)) {
     $output[$i]['label'] = $student['name'];
@@ -340,10 +340,10 @@ if ($_POST['action'] == 'summary') {
 SELECT *,GROUP_CONCAT(staff) AS peopleseen
 FROM   (SELECT Concat(firstname, ' ', lastname) AS name,form,present,intime, firstname, lastname,
                       students.id AS outputid
-        FROM   bcs_students AS students
+        FROM   parentsdb_students AS students
                LEFT JOIN (SELECT present,studentid,Date_format(intime, '%T') AS
                                                    intime
-                          FROM   bcs_present
+                          FROM   parentsdb_present
                           WHERE  Date_format(intime, '%d/%m/%Y') = '$date')
                          AS
                          present
@@ -351,7 +351,7 @@ FROM   (SELECT Concat(firstname, ' ', lastname) AS name,form,present,intime, fir
         WHERE  form LIKE '$year%'
         ORDER  BY form,lastname,firstname) AS students
        LEFT JOIN (SELECT staff,studentid
-                  FROM   bcs_bookings
+                  FROM   parentsdb_bookings
                   WHERE  Date_format(expectedtimestamp, '%d/%m/%Y') =
                          '$date') AS
                                                                  bookings
@@ -422,9 +422,9 @@ ORDER BY form, lastname, firstname
 SELECT *,
        CONCAT(firstname, ' ', lastname) AS name,
        students.id                      AS outputid
-FROM   bcs_students AS students
+FROM   parentsdb_students AS students
        LEFT JOIN (SELECT *
-                  FROM   bcs_present
+                  FROM   parentsdb_present
                   WHERE  Date_format(intime, '%d/%m/%Y') = '$date') AS
                  present
        ON present.studentid = students.id
