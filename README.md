@@ -4,3 +4,5 @@ Parents Evening Sign In System
 This parents evening system should be stored on a system using SSL.
 
 Instal the database via database.sql.
+
+You will need to fill in the Settings.php class and you will need to create a new user manually. To do this set there password = md5($appsalt . username . password). Set their status to admin. From then on you can use the interface. 
